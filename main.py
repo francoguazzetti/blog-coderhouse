@@ -45,7 +45,7 @@ def gestor_blog():
 
         elif opcion == "2":
             if not blog.posts:
-                print("Todavía no hay posts.")
+                print("No hay posts.")
             for post in blog.posts:
                 print("-", post.resumen())
 
