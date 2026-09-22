@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Mi Blog{% endblock %}</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #f7f7fa;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --muted: #666;
+            --accent: #4f46e5;
+            --border: #e5e5ea;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #17171c;
+                --card-bg: #222228;
+                --text: #f0f0f5;
+                --muted: #a0a0ac;
+                --border: #33333c;
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        header {
+            background: var(--accent);
+            padding: 1.25rem 1rem;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        main {
+            max-width: 720px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .card h2 { margin: 0 0 0.25rem; }
+        .card h2 a { color: var(--text); text-decoration: none; }
+        .card h2 a:hover { color: var(--accent); }
+        .meta { color: var(--muted); font-size: 0.9rem; }
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        form.inline { display: inline; }
+        label { display: block; margin-top: 0.75rem; font-weight: 600; }
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.25rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--card-bg);
+            color: var(--text);
+        }
+        .top-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{% url 'posts:lista' %}">📝 Mi Blog</a>
+    </header>
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+</body>
+</html>
